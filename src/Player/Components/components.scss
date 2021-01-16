@@ -1,54 +1,77 @@
-.image{
+@import "../../variables.scss";
+
+.image {
     width: 100%;
+    width: 320px;
+    height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+
+    img {
         height: 100%;
     }
 }
 
-.title-container{
+.title-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    .song-name{
+
+    .song-name {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
         font-size: 36px;
-        padding: 20px 0 14px 0;
+        padding-bottom: 14px;
     }
-    .artist{
+
+    .artist {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
         font-size: 24px;
+        color: $btn-color-light;
     }
 }
 
-.progress-container{
+.progress-container {
     width: 100%;
     display: flex;
     padding: 35px 0 12px 0;
     align-items: center;
-    .time{
+    justify-content: center;
+
+    .time {
         width: 10%;
-        padding: 0 12px;
+        display: flex;
+        justify-content: center;
         font-size: 13px;
+        color: $btn-color-light !important;
     }
-    .progress-bar{
+
+    .progress-bar {
         height: 1px;
         width: 80%;
-        background: #000;
+        background: $tooltip-color;
     }
 }
 
+.timers {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
 
-.cover-image{
+.timers-padding {
+    padding: 24px 0 36px 0;
+}
+
+.cover-image {
     position: relative;
     bottom: 30px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
 }

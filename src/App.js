@@ -1,23 +1,17 @@
-import React from 'react'
-import Controller from './Player/Controller/Controller'
-import Image from './Player/Components/Image';
-import Title from './Player/Components/Title';
-import Cover from './imgs/cover1.png'
-import "./App.scss"
-import Progress from './Player/Components/Progress';
+import React from "react";
+import "./App.scss";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Player from "./Player/Player";
+import Login from "./Login/Login";
 
 function App() {
   return (
-    <div className="App">
-        <div className="cover-container">
-          <Image name={Cover} className="cover-image" />
-        </div>
-        <div className="controls-container">
-          <Title artist={"Billie Eilish"} songName={"Everything I Wanted"} />
-          <Progress />
-          <Controller />
-        </div>
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact component={Login} path="/" />
+        {/* <Route exact component={Player} path="/player" /> */}
+      </div>
+    </Router>
   );
 }
 
