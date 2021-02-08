@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none !important;
 }
 
 .App {
@@ -29,5 +30,8 @@ body {
         width: 100%;
     }
 
+    .full-height-wrapper {
+        height: 100%;
+    }
 
 }

@@ -1,0 +1,19 @@
+@import "../variables.scss";
+
+.login-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .invalid {
+        position: absolute;
+        font-size: 13px;
+        color: $tooltip-txt-color;
+    }
+}

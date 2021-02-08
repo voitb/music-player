@@ -7,16 +7,21 @@ import { ReactComponent as FastForward } from "../../svgs/fast-forward.svg";
 import { ReactComponent as PlayButton } from "../../svgs/play-button.svg";
 import { ReactComponent as PauseButton } from "../../svgs/pause.svg";
 import { ReactComponent as Playlist } from "../../svgs/playlist.svg";
-import Africa from "../../music/africa.mp3";
-import Everything from "../../music/everything-i-wanted.mp3";
-import DownUnder from "../../music/Men-At-Work-Down-Under.mp3";
 
 import "./controller.scss";
 
-const Controller = ({ songIndex, previousSong, nextSong }) => {
-  const [progressWidth, setProgressWidth] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-
+const Controller = ({
+  songIndex,
+  previousSong,
+  nextSong,
+  progressWidth,
+  setProgressWidth,
+  volumeState,
+  setVolumeState,
+  isPlaying,
+  setIsPlaying,
+  currentAudio,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -24,25 +29,21 @@ const Controller = ({ songIndex, previousSong, nextSong }) => {
     setIsOpen(!isOpen);
   };
 
-  const audio = [Africa, Everything, DownUnder];
+  const onSpeakerOver = () => {
+    setIsOpen(true);
+  };
 
-  const currentAudio = new Audio(audio[songIndex]);
-
-  const play = () => {
+  const togglePlay = () => {
     setIsPlaying(!isPlaying);
-    if (isPlaying) {
-      currentAudio.pause();
-    } else {
-      currentAudio.play();
-    }
   };
 
   useEffect(() => {
-    return () => {
-      setProgressWidth((100 / audio.duration) * audio.currentTime);
-      console.log(progressWidth);
-    };
-  }, [audio && audio.currentTime]);
+    isPlaying ? currentAudio.play() : currentAudio.pause();
+  }, [isPlaying]);
+
+  useEffect(() => {
+    currentAudio.volume = volumeState / 100;
+  }, [volumeState]);
 
   return (
     <>
@@ -59,18 +60,20 @@ const Controller = ({ songIndex, previousSong, nextSong }) => {
                 className="rotate-icon nav-controlls svg"
               />
             </motion.div>
-            <motion.div onClick={play} whileTap={{ scale: 0.9 }}>
-              {isPlaying ? (
-                <PauseButton
-                  alt="PauseButton Icon"
-                  className="nav-controlls play svg"
-                />
-              ) : (
-                <PlayButton
-                  alt="PlayButton Icon"
-                  className="nav-controlls play svg"
-                />
-              )}
+            <motion.div whileTap={{ scale: 0.9 }}>
+              <div onClick={() => togglePlay()}>
+                {isPlaying ? (
+                  <PauseButton
+                    alt="PauseButton Icon"
+                    className="nav-controlls play svg"
+                  />
+                ) : (
+                  <PlayButton
+                    alt="PlayButton Icon"
+                    className="nav-controlls play svg"
+                  />
+                )}
+              </div>
             </motion.div>
             <motion.div whileTap={{ scale: 0.9 }}>
               <FastForward
@@ -84,20 +87,24 @@ const Controller = ({ songIndex, previousSong, nextSong }) => {
             <AnimatePresence>
               {isOpen && (
                 <motion.div
-                  className="volume"
+                  className="input-styling"
                   layout
                   initial={{ opacity: 0, height: 20 }}
                   animate={{ opacity: 1, height: 60 }}
                   transition={{ duration: 0.5 }}
                   exit={{ opacity: 0, height: 20 }}
+                  onMouseOver={onSpeakerOver}
+                  onMouseOut={toggleOpen}
                 >
-                  <div className="line" />
-                  <motion.div
-                    className="dot"
-                    whileHover={{ scale: 1.1 }}
-                    drag="y"
-                    dragConstraints={{ top: 0, bottom: 35 }}
-                    dragElastic={false}
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={volumeState}
+                    style={{
+                      background: `-webkit-linear-gradient(left, rgb(231, 76, 60) 0%, rgb(231, 76, 60) ${volumeState}%, rgb(153, 153, 153) ${volumeState}%)`,
+                    }}
+                    onChange={(e) => setVolumeState(e.target.value)}
                   />
                 </motion.div>
               )}
@@ -105,7 +112,8 @@ const Controller = ({ songIndex, previousSong, nextSong }) => {
             <motion.div
               className="side-controlls"
               whileHover={{ scale: 1.1 }}
-              onClick={toggleOpen}
+              onMouseOver={onSpeakerOver}
+              onMouseOut={toggleOpen}
             >
               <Speaker className="svg" />
             </motion.div>
