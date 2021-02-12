@@ -1,12 +1,6 @@
 import React from "react";
 
-const Progress = ({
-  progressWidth,
-  setProgressWidth,
-  currentTime,
-  songTime,
-}) => {
-  console.log(!!songTime);
+const Progress = ({ progressWidth, currentTime, songTime }) => {
   return (
     <>
       <div className="progress-container">
@@ -18,7 +12,6 @@ const Progress = ({
           style={{
             background: `-webkit-linear-gradient(left, rgb(231, 76, 60) 0%, rgb(231, 76, 60) ${progressWidth}%, rgb(153, 153, 153) ${progressWidth}%)`,
           }}
-          onChange={(e) => setProgressWidth(e.target.value)}
           step="0.001"
         />
       </div>

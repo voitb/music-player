@@ -20,21 +20,41 @@ const Player = () => {
   const [progressWidth, setProgressWidth] = useState(0);
   const [volumeState, setVolumeState] = useState(100);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentAudio] = useState(new Audio(audio[songIndex]));
+  const [currentAudio, setCurrentAudio] = useState(new Audio(audio[songIndex]));
 
   const nextSong = () => {
-    setSongIndex(songIndex + 1);
+    if (audio.length === songIndex + 1) {
+      setSongIndex(0);
+    } else {
+      setSongIndex(songIndex + 1);
+    }
   };
 
   const previousSong = () => {
-    setSongIndex(songIndex - 1);
+    if (songIndex === 0) {
+      setSongIndex(audio.length - 1);
+    } else {
+      setSongIndex(songIndex - 1);
+    }
   };
 
   useEffect(() => {
     setArtist(songs.artist[songIndex]);
     setSongName(songs.songName[songIndex]);
+    setCurrentAudio(new Audio(audio[songIndex]));
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    setIsPlaying(false);
     // setCover(songs.cover[songIndex]);
   }, [songIndex]);
+
+  useEffect(() => {
+    setIsPlaying(true);
+  }, [artist]);
+
+  useEffect(() => {
+    setIsPlaying(false);
+  }, []);
 
   currentAudio.ontimeupdate = () => {
     setProgressWidth((100 / currentAudio.duration) * currentAudio.currentTime);

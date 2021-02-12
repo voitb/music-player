@@ -7,7 +7,11 @@ const ConfirmButton = ({ children, onClick }) => {
   };
   return (
     <div className="button-wrapper">
-      <button onClick={onClick} onKeyPress={onKeyPress} className="button">
+      <button
+        onClick={onClick}
+        onKeyPress={() => onKeyPress()}
+        className="button"
+      >
         {children}
       </button>
     </div>

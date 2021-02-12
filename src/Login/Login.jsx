@@ -28,6 +28,7 @@ const Login = () => {
     } else {
       setTimeout(() => {
         setError(true);
+        setPassword("");
         setLoader(false);
       }, 3000);
     }
@@ -52,6 +53,7 @@ const Login = () => {
             <div className="login-center">
               <div className="wrapper">
                 <Input
+                  value={login}
                   type="text"
                   setInput={setLogin}
                   placeholder="user name"
@@ -59,6 +61,7 @@ const Login = () => {
               </div>
               <div className="wrapper">
                 <Input
+                  value={password}
                   type="password"
                   setInput={setPassword}
                   placeholder="password"
@@ -69,7 +72,7 @@ const Login = () => {
                   <motion.div
                     layout
                     initial={{ opacity: 0, height: 20 }}
-                    animate={{ opacity: 1, height: 60 }}
+                    animate={{ opacity: 1, height: 30 }}
                     transition={{ duration: 0.5 }}
                     exit={{ opacity: 0, height: 20 }}
                     className="invalid"

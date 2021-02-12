@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "../Components/Icon";
 import { ReactComponent as Speaker } from "../../svgs/speaker.svg";
+import { ReactComponent as SpeakerSilent } from "../../svgs/speaker-silent.svg";
 import { ReactComponent as Chevron } from "../../svgs/chevron.svg";
 import { ReactComponent as FastForward } from "../../svgs/fast-forward.svg";
 import { ReactComponent as PlayButton } from "../../svgs/play-button.svg";
@@ -25,7 +26,6 @@ const Controller = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
-    console.log(isOpen);
     setIsOpen(!isOpen);
   };
 
@@ -35,6 +35,14 @@ const Controller = ({
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
+  };
+
+  const setMute = () => {
+    if (volumeState > 0) {
+      setVolumeState(0);
+    } else {
+      setVolumeState(100);
+    }
   };
 
   useEffect(() => {
@@ -114,8 +122,11 @@ const Controller = ({
               whileHover={{ scale: 1.1 }}
               onMouseOver={onSpeakerOver}
               onMouseOut={toggleOpen}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setMute()}
             >
-              <Speaker className="svg" />
+              {volumeState > 0 && <Speaker className="svg" />}
+              {volumeState === 0 && <SpeakerSilent className="svg" />}
             </motion.div>
           </div>
         </div>
