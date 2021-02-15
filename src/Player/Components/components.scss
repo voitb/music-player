@@ -55,6 +55,11 @@
         color: $btn-color-light !important;
     }
 
+    .time-small {
+        @extend .time;
+        width: auto;
+    }
+
     .progress-bar {
         height: 1px;
         width: 80%;
@@ -90,13 +95,17 @@
 
     input[type="range"] {
         width: 80%;
-        margin-left: 14px;
+        margin: 0 14px;
         -webkit-appearance: none;
         background-color: #999;
         height: 2px;
         border: none;
         outline: 0;
     }
+}
+
+.progress-container-small {
+    padding: 20px 0 20px 0;
 }
 
 .timers {
@@ -149,11 +158,23 @@
 
     input[type="range"] {
         width: 90px;
-        margin-left: 14px;
+        margin: 0 14px;
         -webkit-appearance: none;
         background-color: #999;
         height: 2px;
         border: none;
         outline: 0;
     }
+}
+
+.artist-smaller {
+    padding: 0 20px;
+    font-size: 20px !important;
+    justify-content: start !important;
+}
+
+.song-name-smaller {
+    padding: 0 20px;
+    font-size: 25px !important;
+    justify-content: start !important;
 }

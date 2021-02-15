@@ -1,0 +1,60 @@
+.home-view-container {
+    width: 100%;
+
+    .home-view-wrapper {
+        display: flex;
+        justify-content: center;
+
+        .trending {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .trending-song {
+                padding: 0 0.5rem;
+
+                .trending-img {
+                    height: 160px;
+                    width: 160px;
+                    padding: 1rem 0;
+
+                    img {
+                        height: 160px;
+                        width: 160px;
+                    }
+                }
+
+                .trending-artist {
+                    font-size: 24px;
+                }
+
+                .trending-song-name {}
+
+                .trending-playlist {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.wrap-center {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap-container {
+    height: 83%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-view-wrapper-header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 0 0;
+}

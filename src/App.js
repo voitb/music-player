@@ -2,6 +2,7 @@ import React from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Player from "./Player/Player";
+import Home from "./Home/Home";
 import Login from "./Login/Login";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Route exact component={Login} path="/" />
-        <Route exact component={Player} path="/home" />
+        <Route exact component={Home} path="/home" />
       </div>
     </Router>
   );

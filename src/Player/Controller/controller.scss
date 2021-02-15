@@ -52,6 +52,19 @@
             width: 20px;
         }
     }
+
+    .controller-row-small {
+        height: 20px !important;
+
+        .svg {
+            height: 18px !important;
+        }
+
+        .play {
+            height: 34px !important;
+        }
+    }
+
 }
 
 .lower-controller {

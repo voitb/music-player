@@ -1,0 +1,26 @@
+@import "../variables.scss";
+
+.pinned-to-bottom {
+    display: flex;
+    background: $bg-color !important;
+    height: 100px !important;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.img-smaller {
+    position: static !important;
+    height: 86px;
+    width: 86px;
+}
+
+.cover-container-small {
+    align-items: center !important;
+    height: 100% !important;
+    width: 25% !important;
+    justify-content: start !important;
+    padding: 0 40px;
+}
+
+.small-title {
+    width: 100%;
+}

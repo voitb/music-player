@@ -22,6 +22,8 @@ const Controller = ({
   isPlaying,
   setIsPlaying,
   currentAudio,
+  setFullSize,
+  fullSize,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -50,13 +52,16 @@ const Controller = ({
   }, [isPlaying]);
 
   useEffect(() => {
+    console.log(volumeState);
     currentAudio.volume = volumeState / 100;
   }, [volumeState]);
 
   return (
     <>
       <div className="controller-container">
-        <div className="controller-row">
+        <div
+          className={`controller-row ${!fullSize && "controller-row-small"}`}
+        >
           <motion.div className="side-controlls" whileTap={{ scale: 1.1 }}>
             <Playlist className="svg" />
           </motion.div>
@@ -126,14 +131,16 @@ const Controller = ({
               onClick={() => setMute()}
             >
               {volumeState > 0 && <Speaker className="svg" />}
-              {volumeState === 0 && <SpeakerSilent className="svg" />}
+              {volumeState < 1 && <SpeakerSilent className="svg" />}
             </motion.div>
           </div>
         </div>
       </div>
-      <div className="lower-controller">
-        <Chevron className="svg" alt="Chevron Icon" />
-      </div>
+      {fullSize && (
+        <div className="lower-controller">
+          <Chevron className="svg" alt="Chevron Icon" />
+        </div>
+      )}
     </>
   );
 };
