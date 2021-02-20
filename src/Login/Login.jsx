@@ -5,6 +5,7 @@ import ConfirmButton from "./ConfirmButton/ConfirmButton";
 import Input from "./Input/Input";
 import "./Login.scss";
 import PlayerLoader from "../Loader/PlayerLoader";
+import Loader from "react-loader-spinner";
 
 const Login = () => {
   const [login, setLogin] = useState("");
@@ -34,11 +35,6 @@ const Login = () => {
     }
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-    }
-  };
-
   return (
     <AnimatePresence>
       {!hide && (
@@ -50,6 +46,9 @@ const Login = () => {
         >
           <div className="login-wrapper">
             <div className="login-center">
+              <div className="animation-icon">
+                <Loader type="Bars" color="rgb(231, 76, 60)" />
+              </div>
               <div className="wrapper">
                 <Input
                   value={login}

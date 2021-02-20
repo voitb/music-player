@@ -8,7 +8,7 @@ const PlayerLoader = () => {
       <Loader
         className="loader"
         type="Audio"
-        color="#D83256"
+        color="rgb(231, 76, 60)"
         height={80}
         width={80}
       />

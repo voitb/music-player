@@ -145,6 +145,7 @@ const Controller = ({
         <motion.div
           className="lower-controller"
           onClick={() => setFullSize(!fullSize)}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.85 }}
         >
           <Chevron className="svg" alt="Chevron Icon" />

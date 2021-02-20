@@ -11,8 +11,8 @@
         width: 254px;
         border-radius: 20px;
         border: none;
-        background: #D83256;
-        color: $tooltip-txt-color;
+        background: rgb(231, 76, 60);
+        color: #e0e0e0;
         font-weight: 600;
         font-size: 15px;
         cursor: pointer;
@@ -22,7 +22,7 @@
         }
 
         &:hover {
-            background: #cc3d5c;
+            background: rgb(231, 76, 60);
         }
     }
 }
