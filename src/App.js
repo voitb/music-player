@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Route exact component={Login} path="/music-player/" />
-        <Route exact component={Home} path="/home" />
+        <Route exact component={Home} path="/music-player/home" />
       </div>
     </Router>
   );

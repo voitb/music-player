@@ -21,7 +21,7 @@ const Login = () => {
       setTimeout(() => {
         setHide(true);
         setTimeout(() => {
-          history.push("/home");
+          history.push("/music-player/home");
           setLoader(false);
         }, 300);
       }, 2000);
