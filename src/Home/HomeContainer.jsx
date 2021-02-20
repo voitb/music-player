@@ -14,7 +14,7 @@ const HomeContainer = ({ songs, songIndex, playlists, setSongIndex }) => {
             setSongIndex={setSongIndex}
           />
         </MusicRow>
-        <MusicRow header="Your playlists">
+        <MusicRow header="Your playlists" style={{ margin: "0 0 125px 0" }}>
           <SongsMap
             songs={playlists}
             showPlaylist={true}

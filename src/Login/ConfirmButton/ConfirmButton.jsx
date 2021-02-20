@@ -2,9 +2,7 @@ import React from "react";
 import css from "./ConfirmButton.scss";
 
 const ConfirmButton = ({ children, onClick }) => {
-  const onKeyPress = () => {
-    console.log("XD");
-  };
+  const onKeyPress = () => {};
   return (
     <div className="button-wrapper">
       <button

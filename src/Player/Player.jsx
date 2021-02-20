@@ -62,31 +62,32 @@ const Player = ({
 
   currentAudio.ontimeupdate = () => {
     setProgressWidth((100 / currentAudio.duration) * currentAudio.currentTime);
+    if (currentAudio.duration === currentAudio.currentTime) {
+      setSongIndex(songIndex + 1);
+    }
   };
 
   return (
     <motion.div
       className={`full-height-wrapper ${!fullSize ? "pinned-to-bottom" : ""}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
     >
-      <div
+      <motion.div
         className={`cover-container ${
           !fullSize ? "cover-container-small" : ""
         }`}
-        onClick={() => setFullSize(!fullSize)}
+        onClick={() => !fullSize && setFullSize(!fullSize)}
+        whileTap={!fullSize && { scale: 0.985 }}
       >
         <Image
           songIndex={songIndex}
           className={`cover-image ${!fullSize ? "img-smaller" : ""}`}
         />
         {!fullSize && (
-          <div className="small-title">
+          <div className={`small-title ${!fullSize && "hide-title"}`}>
             <Title artist={artist} songName={songName} fullSize={fullSize} />
           </div>
         )}
-      </div>
+      </motion.div>
       <div className={`${!fullSize && "controls-center"}`}>
         <div className={`controls-container ${!fullSize && "progress-center"}`}>
           {fullSize && (

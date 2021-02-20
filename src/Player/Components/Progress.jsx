@@ -16,7 +16,7 @@ const Progress = ({
       >
         {!fullSize && (
           <div className="time-small">
-            {Math.floor(currentTime % 60) > 10
+            {Math.floor(currentTime % 60) > 9
               ? Math.floor(currentTime / 60) +
                 ":" +
                 Math.floor(currentTime % 60)
@@ -30,6 +30,7 @@ const Progress = ({
           min="0"
           max="100"
           value={progressWidth}
+          onClick={(e) => console.log(e.target.value)}
           style={{
             background: `-webkit-linear-gradient(left, rgb(231, 76, 60) 0%, rgb(231, 76, 60) ${progressWidth}%, rgb(153, 153, 153) ${progressWidth}%)`,
           }}

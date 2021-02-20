@@ -52,7 +52,6 @@ const Controller = ({
   }, [isPlaying]);
 
   useEffect(() => {
-    console.log(volumeState);
     currentAudio.volume = volumeState / 100;
   }, [volumeState]);
 
@@ -62,18 +61,22 @@ const Controller = ({
         <div
           className={`controller-row ${!fullSize && "controller-row-small"}`}
         >
-          <motion.div className="side-controlls" whileTap={{ scale: 1.1 }}>
+          <motion.div
+            className="side-controlls"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.1 }}
+          >
             <Playlist className="svg" />
           </motion.div>
           <div className="middle-controlls">
-            <motion.div whileTap={{ scale: 0.9 }}>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <FastForward
                 onClick={() => previousSong()}
                 alt="FastForward Icon"
                 className="rotate-icon nav-controlls svg"
               />
             </motion.div>
-            <motion.div whileTap={{ scale: 0.9 }}>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <div onClick={() => togglePlay()}>
                 {isPlaying ? (
                   <PauseButton
@@ -88,7 +91,7 @@ const Controller = ({
                 )}
               </div>
             </motion.div>
-            <motion.div whileTap={{ scale: 0.9 }}>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <FastForward
                 onClick={() => nextSong()}
                 alt="FastForward Icon"
@@ -137,9 +140,13 @@ const Controller = ({
         </div>
       </div>
       {fullSize && (
-        <div className="lower-controller">
+        <motion.div
+          className="lower-controller"
+          onClick={() => setFullSize(!fullSize)}
+          whileTap={{ scale: 0.85 }}
+        >
           <Chevron className="svg" alt="Chevron Icon" />
-        </div>
+        </motion.div>
       )}
     </>
   );

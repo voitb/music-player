@@ -19,6 +19,14 @@
     width: 25% !important;
     justify-content: start !important;
     padding: 0 40px;
+
+    @media (max-width: 1000px) {
+        padding: 0 40px 0 55px;
+    }
+
+    @media (max-width:730px) {
+        display: none !important;
+    }
 }
 
 .small-title {

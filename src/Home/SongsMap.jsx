@@ -12,6 +12,7 @@ const SongsMap = ({ songs, setSongIndex, showPlaylist }) => {
             onClick={() => setSongIndex(key)}
           >
             <Image
+              playerImg={false}
               showPlaylist={showPlaylist}
               songIndex={key}
               className="trending-img"

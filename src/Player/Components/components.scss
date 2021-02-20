@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 
 .image {
-    width: 100%;
     width: 320px;
     height: 320px;
     display: flex;
@@ -40,12 +39,19 @@
     }
 }
 
+.hide-title {
+    @media (max-width: 1000px) {
+        display: none;
+    }
+}
+
 .progress-container {
     width: 100%;
     display: flex;
     padding: 35px 0 12px 0;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 
     .time {
         width: 10%;
@@ -165,16 +171,24 @@
         border: none;
         outline: 0;
     }
+
+    @media (max-width: 620px) {
+        input {
+            display: none;
+        }
+    }
 }
 
 .artist-smaller {
     padding: 0 20px;
-    font-size: 20px !important;
+    font-size: 18px !important;
     justify-content: start !important;
+    padding-top: 6px;
 }
 
 .song-name-smaller {
     padding: 0 20px;
-    font-size: 25px !important;
+    font-size: 21px !important;
     justify-content: start !important;
+    padding-bottom: 0 !important;
 }
