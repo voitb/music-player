@@ -12,6 +12,19 @@ import { songs, playlists } from "./data";
 import HomeContainer from "./HomeContainer";
 import { motion } from "framer-motion";
 
+import AfricaCover from "../imgs/toto_africa.jpg";
+import EverythingCover from "../imgs/cover1.png";
+import DownUnderCover from "../imgs/men_at_work_down_under.jpg";
+import AroundTheWolrdCover from "../imgs/around-the-world.jpg";
+import KillinItCover from "../imgs/killin-it.jpg";
+import StrippedCover from "../imgs/stripped.jpg";
+import SweetHomeCover from "../imgs/sweet-home.jpg";
+import FinalCountdownCover from "../imgs/final-countdown.jpg";
+
+import Cover1 from "../imgs/covers/cover1.jpg";
+import Cover2 from "../imgs/covers/cover2.jpg";
+import Cover3 from "../imgs/covers/cover3.jpg";
+
 const Home = () => {
   const audio = [
     Africa,
@@ -23,6 +36,20 @@ const Home = () => {
     SweetHomeAlabama,
     TheFinalCountdown,
   ];
+
+  const cover = [
+    AfricaCover,
+    EverythingCover,
+    DownUnderCover,
+    AroundTheWolrdCover,
+    KillinItCover,
+    StrippedCover,
+    SweetHomeCover,
+    FinalCountdownCover,
+  ];
+
+  const playlistCover = [Cover1, Cover2, Cover3];
+
   const [songIndex, setSongIndex] = useState(0);
   const [artist, setArtist] = useState(songs[songIndex].artist);
   const [songName, setSongName] = useState(songs[songIndex].songName);
@@ -31,6 +58,7 @@ const Home = () => {
   const [volumeState, setVolumeState] = useState(100);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(new Audio(audio[songIndex]));
+  const [repeat, setRepeat] = useState(false);
 
   const [fullSize, setFullSize] = useState(false);
 
@@ -46,12 +74,19 @@ const Home = () => {
       transition={{ duration: 0.8 }}
     >
       <HomeContainer
+        playlistCover={playlistCover}
+        cover={cover}
         songs={songs}
         playlists={playlists}
         songIndex={songIndex}
         setSongIndex={setSongIndex}
       />
       <Player
+        playlistCover={playlistCover}
+        cover={cover}
+        setProgressWidth={setProgressWidth}
+        repeat={repeat}
+        setRepeat={setRepeat}
         audio={audio}
         songIndex={songIndex}
         setSongIndex={setSongIndex}

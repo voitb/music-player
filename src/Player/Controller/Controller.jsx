@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Icon from "../Components/Icon";
 import { ReactComponent as Speaker } from "../../svgs/speaker.svg";
 import { ReactComponent as SpeakerSilent } from "../../svgs/speaker-silent.svg";
 import { ReactComponent as Chevron } from "../../svgs/chevron.svg";
 import { ReactComponent as FastForward } from "../../svgs/fast-forward.svg";
 import { ReactComponent as PlayButton } from "../../svgs/play-button.svg";
 import { ReactComponent as PauseButton } from "../../svgs/pause.svg";
-import { ReactComponent as Playlist } from "../../svgs/playlist.svg";
+import { ReactComponent as Repeat } from "../../svgs/repeat.svg";
 
 import "./controller.scss";
 
@@ -24,6 +23,8 @@ const Controller = ({
   currentAudio,
   setFullSize,
   fullSize,
+  repeat,
+  setRepeat,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -64,9 +65,10 @@ const Controller = ({
           <motion.div
             className="side-controlls"
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setRepeat(!repeat)}
           >
-            <Playlist className="svg" />
+            <Repeat className={`svg ${repeat && "repeat"}`} />
           </motion.div>
           <div className="middle-controlls">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>

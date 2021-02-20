@@ -5,7 +5,9 @@ const Progress = ({
   currentTime,
   songTime,
   setFullSize,
+  setProgressWidth,
   fullSize,
+  currentAudio,
 }) => {
   return (
     <>
@@ -30,7 +32,10 @@ const Progress = ({
           min="0"
           max="100"
           value={progressWidth}
-          onClick={(e) => console.log(e.target.value)}
+          onChange={(e) => {
+            currentAudio.currentTime =
+              currentAudio.duration * (e.target.value / 100);
+          }}
           style={{
             background: `-webkit-linear-gradient(left, rgb(231, 76, 60) 0%, rgb(231, 76, 60) ${progressWidth}%, rgb(153, 153, 153) ${progressWidth}%)`,
           }}

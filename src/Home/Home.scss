@@ -9,9 +9,16 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            width: 40%;
+
+            @media (max-width: 1330px) {
+                width: 50%;
+            }
 
             .trending-song {
                 padding: 0 0.5rem;
+
+                cursor: pointer;
 
                 .trending-img {
                     height: 160px;
@@ -31,6 +38,8 @@
                 .trending-song-name {}
 
                 .trending-playlist {
+                    display: flex;
+                    justify-content: center;
                     font-size: 16px;
                 }
             }

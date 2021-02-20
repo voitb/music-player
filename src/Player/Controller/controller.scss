@@ -102,8 +102,13 @@
     }
 }
 
+
 .svg {
     height: 20px;
     width: 20px;
     fill: $tooltip-color !important;
+}
+
+.repeat {
+    fill: rgb(231, 76, 60) !important;
 }

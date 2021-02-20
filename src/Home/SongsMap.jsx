@@ -1,7 +1,14 @@
 import React from "react";
 import Image from "../Player/Components/Image";
 
-const SongsMap = ({ songs, setSongIndex, showPlaylist }) => {
+const SongsMap = ({
+  songs,
+  setSongIndex,
+  showPlaylist,
+  playlistCover,
+  cover,
+  setPlaylistIndex
+}) => {
   return (
     <div className="trending">
       {songs.map((song, key) => {
@@ -12,6 +19,8 @@ const SongsMap = ({ songs, setSongIndex, showPlaylist }) => {
             onClick={() => setSongIndex(key)}
           >
             <Image
+              cover={cover}
+              playlistCover={playlistCover}
               playerImg={false}
               showPlaylist={showPlaylist}
               songIndex={key}

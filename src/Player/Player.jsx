@@ -25,6 +25,9 @@ const Player = ({
   songs,
   fullSize,
   setFullSize,
+  repeat,
+  setRepeat,
+  cover,
 }) => {
   const nextSong = () => {
     if (audio.length === songIndex + 1) {
@@ -53,6 +56,7 @@ const Player = ({
   }, [songIndex]);
 
   useEffect(() => {
+    currentAudio.volume = volumeState / 100;
     setIsPlaying(true);
   }, [artist]);
 
@@ -62,8 +66,11 @@ const Player = ({
 
   currentAudio.ontimeupdate = () => {
     setProgressWidth((100 / currentAudio.duration) * currentAudio.currentTime);
-    if (currentAudio.duration === currentAudio.currentTime) {
+    if (currentAudio.duration === currentAudio.currentTime && !repeat) {
       setSongIndex(songIndex + 1);
+    } else if (currentAudio.duration === currentAudio.currentTime && repeat) {
+      currentAudio.currentTime = 0;
+      currentAudio.play();
     }
   };
 
@@ -81,6 +88,7 @@ const Player = ({
         <Image
           songIndex={songIndex}
           className={`cover-image ${!fullSize ? "img-smaller" : ""}`}
+          cover={cover}
         />
         {!fullSize && (
           <div className={`small-title ${!fullSize && "hide-title"}`}>
@@ -94,6 +102,8 @@ const Player = ({
             <Title artist={artist} songName={songName} fullSize={fullSize} />
           )}
           <Progress
+            currentAudio={currentAudio}
+            setProgressWidth={setProgressWidth}
             progressWidth={progressWidth}
             setProgressWidth={setProgressWidth}
             currentTime={currentAudio.currentTime}
@@ -102,6 +112,8 @@ const Player = ({
             setFullSize={setFullSize}
           />
           <Controller
+            repeat={repeat}
+            setRepeat={setRepeat}
             songIndex={songIndex}
             nextSong={nextSong}
             previousSong={previousSong}
