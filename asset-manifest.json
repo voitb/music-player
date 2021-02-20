@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/music-player/static/css/main.8f14b0e3.chunk.css",
-    "main.js": "/music-player/static/js/main.10eda28b.chunk.js",
-    "main.js.map": "/music-player/static/js/main.10eda28b.chunk.js.map",
-    "runtime-main.js": "/music-player/static/js/runtime-main.b39f1f1c.js",
-    "runtime-main.js.map": "/music-player/static/js/runtime-main.b39f1f1c.js.map",
-    "static/js/2.f93bfeb4.chunk.js": "/music-player/static/js/2.f93bfeb4.chunk.js",
-    "static/js/2.f93bfeb4.chunk.js.map": "/music-player/static/js/2.f93bfeb4.chunk.js.map",
-    "static/js/3.aba43e71.chunk.js": "/music-player/static/js/3.aba43e71.chunk.js",
-    "static/js/3.aba43e71.chunk.js.map": "/music-player/static/js/3.aba43e71.chunk.js.map",
+    "main.css": "/music-player/static/css/main.f084738b.chunk.css",
+    "main.js": "/music-player/static/js/main.f9edc40d.chunk.js",
+    "main.js.map": "/music-player/static/js/main.f9edc40d.chunk.js.map",
+    "runtime-main.js": "/music-player/static/js/runtime-main.6911866e.js",
+    "runtime-main.js.map": "/music-player/static/js/runtime-main.6911866e.js.map",
+    "static/js/2.d7c87c80.chunk.js": "/music-player/static/js/2.d7c87c80.chunk.js",
+    "static/js/2.d7c87c80.chunk.js.map": "/music-player/static/js/2.d7c87c80.chunk.js.map",
+    "static/js/3.ad91dda7.chunk.js": "/music-player/static/js/3.ad91dda7.chunk.js",
+    "static/js/3.ad91dda7.chunk.js.map": "/music-player/static/js/3.ad91dda7.chunk.js.map",
     "index.html": "/music-player/index.html",
-    "static/css/main.8f14b0e3.chunk.css.map": "/music-player/static/css/main.8f14b0e3.chunk.css.map",
-    "static/js/2.f93bfeb4.chunk.js.LICENSE.txt": "/music-player/static/js/2.f93bfeb4.chunk.js.LICENSE.txt",
+    "static/css/main.f084738b.chunk.css.map": "/music-player/static/css/main.f084738b.chunk.css.map",
+    "static/js/2.d7c87c80.chunk.js.LICENSE.txt": "/music-player/static/js/2.d7c87c80.chunk.js.LICENSE.txt",
     "static/media/Killin-it.f39b498a.mp3": "/music-player/static/media/Killin-it.f39b498a.mp3",
     "static/media/Men-At-Work-Down-Under.1c528ff2.mp3": "/music-player/static/media/Men-At-Work-Down-Under.1c528ff2.mp3",
     "static/media/Stripped.c6685901.mp3": "/music-player/static/media/Stripped.c6685901.mp3",
@@ -31,7 +31,7 @@
     "static/media/men_at_work_down_under.33d5b05d.jpg": "/music-player/static/media/men_at_work_down_under.33d5b05d.jpg",
     "static/media/pause.f4fa2300.svg": "/music-player/static/media/pause.f4fa2300.svg",
     "static/media/play-button.0eb59435.svg": "/music-player/static/media/play-button.0eb59435.svg",
-    "static/media/playlist.1c6169bd.svg": "/music-player/static/media/playlist.1c6169bd.svg",
+    "static/media/repeat.0671f839.svg": "/music-player/static/media/repeat.0671f839.svg",
     "static/media/speaker-silent.5f6eed27.svg": "/music-player/static/media/speaker-silent.5f6eed27.svg",
     "static/media/speaker.f963acae.svg": "/music-player/static/media/speaker.f963acae.svg",
     "static/media/stripped.a7346968.jpg": "/music-player/static/media/stripped.a7346968.jpg",
@@ -39,9 +39,9 @@
     "static/media/toto_africa.6a6eea7d.jpg": "/music-player/static/media/toto_africa.6a6eea7d.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b39f1f1c.js",
-    "static/js/2.f93bfeb4.chunk.js",
-    "static/css/main.8f14b0e3.chunk.css",
-    "static/js/main.10eda28b.chunk.js"
+    "static/js/runtime-main.6911866e.js",
+    "static/js/2.d7c87c80.chunk.js",
+    "static/css/main.f084738b.chunk.css",
+    "static/js/main.f9edc40d.chunk.js"
   ]
 }
